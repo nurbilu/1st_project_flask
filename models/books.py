@@ -1,5 +1,7 @@
+from flask import Blueprint
 from . import db
 
+books_blueprint = Blueprint('books', __name__)
 class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)

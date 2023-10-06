@@ -1,4 +1,6 @@
-from core.app import book_blueprint,customer_blueprint,loan_blueprint
+from core.app import app
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+
+  # Run the Flask app
+  app.run(debug=True)

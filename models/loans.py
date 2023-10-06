@@ -1,4 +1,7 @@
+from flask import Blueprint 
 from . import db
+
+loans_blueprint = Blueprint('loans', __name__)
 
 class Loan(db.Model):
     cust_id = db.Column(db.Integer, db.ForeignKey('customer.id'), primary_key=True)

@@ -1,4 +1,7 @@
+from flask import Blueprint 
 from . import db
+
+customers_blueprint = Blueprint('customers', __name__)
 
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True)

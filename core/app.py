@@ -1,20 +1,18 @@
-from flask import Flask,Blueprint
-from flask_sqlalchemy import SQLAlchemy
-from models.books import *
-from models.customers import *
-from models.loans import *
+from create_db import create_library_database 
+
+# create_library_database()
+
+from flask import Flask
+
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///library.db'
-db = SQLAlchemy(app)
 
+from models.books import books_blueprint
+from models.customers import customers_blueprint
+from models.customers import customers_blueprint
 
-book_blueprint = Blueprint('book', __name__)
-customer_blueprint = Blueprint('customer', __name__)
-loan_blueprint = Blueprint('loan', __name__)
+app.register_blueprint(books_blueprint)
+app.register_blueprint(customers_blueprint)
 
-app.register_blueprint(book_blueprint, url_prefix='/books')
-app.register_blueprint(customer_blueprint, url_prefix='/customers')
-app.register_blueprint(loan_blueprint, url_prefix='/loans')
 
 
